@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root{
+    --primary-color: #3D7DCA; 
+    --secondary-color: #FFCB05;
+    --text-color: #f0f0f0;
+    --font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    font-family: var(--font-family);
+    background-color: var(--primary-color); 
+    color: var(--text-color);
+    transition: background-color 0.7s ease;
+}
+
+#logo-link { 
+    display: block; 
+    cursor: pointer; 
+    transition: transform 0.3s ease, filter 0.3s ease; 
+    line-height: 0; 
+}
+
+#logo-link:hover { 
+    transform: scale(1.05);
+    filter: brightness(1.2); 
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#logo {
+    width: 400px; 
+    height: auto;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)); 
+}
+
+#game-description {
+    color: var(--text-color);
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    max-width: 400px;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+#score-display {
+    color: var(--secondary-color);
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    letter-spacing: 1px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1; 
+    width: 100%;
+}
+
+#container {
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 0px 0px transparent;
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 18px; 
+    max-width: 450px; 
+    width: 90%;
+    transition: box-shadow 0.7s ease;
+}
+
+h2 {
+    margin-top: 0;
+    color: white; 
+    font-size: 1.8em;
+    font-family: var(--font-family);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    letter-spacing: 2px;
+}
+
+span#pokemonNome {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--secondary-color); 
+    -webkit-text-stroke: 1px var(--primary-color);
+}
+
+#troca-de-cor,
+#pokemonCheck {
+    padding: 15px 30px; 
+    font-size: 1.2em; 
+    font-weight: bold;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
+    letter-spacing: 1px;
+}
+
+#pokemonCheck {
+    display: none; 
+}
+
+#troca-de-cor:hover,
+#pokemonCheck:hover {
+    background-color: var(--secondary-color); 
+    transform: translateY(-2px);
+    color: black; 
+}
+
+#pokemonInput {
+    padding: 12px 18px; 
+    font-size: 1.1em;
+    border: 3px solid var(--primary-color);
+    border-radius: 8px;
+    text-align: center;
+    width: 80%;
+    max-width: 280px; 
+    background-color: #f9f9f9;
+    color: #333;
+    display: none; 
+}
+
+#pokemonInput::placeholder {
+    color: #aaa;
+}
+
+#resultado {
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    min-height: 30px; /* Garante altura mínima para a mensagem */
+    color: white; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-align: center; /* Centraliza o texto */
+}
+
+#pokemonImagem {
+    max-width: 200px;
+    height: auto; 
+    margin-top: 25px;
+    border: 7px solid var(--secondary-color);
+    border-radius: 50%; 
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 15px; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6); 
+    transition: transform 0.3s ease; 
+}
+#pokemonImagem.revealed { 
+    animation: bounceIn 0.8s forwards;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+#pokemonInput.hidden {
+    display: none;
+}
+
+#stats-button {
+    background-color: transparent; 
+    color: rgba(255, 255, 255, 0.5); 
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+    padding: 8px 15px;
+    font-size: 0.9em;
+    margin-top: 25px; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+    text-shadow: none; 
+    letter-spacing: 0; 
+}
+
+#stats-button:hover {
+    background-color: rgba(255, 255, 255, 0.1); 
+    color: white; 
+    border-color: rgba(255, 255, 255, 0.5); 
+    transform: translateY(-1px); 
+}
+
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 8px 20px;
+    background-color: transparent; 
+    color: rgba(255, 255, 255, 0.4); 
+    font-size: 0.65em;
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08); 
+}
+
+footer p {
+    margin: 2px 0; 
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-weight: normal; 
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-height: 780px) {
+    body {
+        padding: 10px; 
+    }
+
+    #header {
+        margin-bottom: 10px; 
+    }
+    
+    #logo {
+        width: 250px;
+    }
+
+    #game-description {
+        font-size: 0.8em; 
+        margin-bottom: 10px;
+    }
+
+    #container {
+        padding: 30px;
+        gap: 12px; 
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+    
+    #troca-de-cor,
+    #pokemonCheck {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+
+    #pokemonInput {
+        padding: 10px 15px; 
+        font-size: 1em;
+    }
+
+     #game-description {
+        font-size: 0.8em; 
+        margin-bottom: 10px;
+    }
+
+    #score-display {
+        font-size: 1em;
+        margin-top: 5px;
+    }
+
+    #pokemonImagem {
+        max-width: 170px; 
+        padding: 12px;
+        border-width: 6px;
+    }
+
+    #stats-button {
+        padding: 7px 14px;
+        font-size: 0.75em;
+        margin-top: 18px; 
+    }
+
+    footer {
+        padding: 8px 15px; 
+        font-size: 0.6em; 
+        margin-top: 20px; 
+    }
+}

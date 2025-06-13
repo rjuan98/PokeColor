@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/188/188918.png" type="image/png">
+    <title>PokéColor</title>
+</head>
+<body>
+    <header id="game-header">
+        <a href="#" id="logo-link">
+            <img src="assets/Screenshot_1__1_-removebg-preview (1).png" alt="PokéColor Logo" id="logo">
+        </a>
+        <p id="game-description">Adivinhe o Pokémon pela cor do seu tema e sua aura!</p>
+        <div id="score-display">Pontuação: 0</div> </header>
+    <main>
+        <div id="container">
+            <button id="troca-de-cor">Mudar Cor</button>
+            <h2>Quem é esse Pokémon <span id="pokemonNome">?</span></h2>
+            <input type="text" id="pokemonInput" placeholder="Quem é esse Pokémon?">
+            <button id="pokemonCheck">Adivinhar!</button>
+            <div id="resultado"></div>
+            <img src="" id="pokemonImagem" alt="Imagem do Pokémon" style="display: none;">
+            <p id="attempts-display"></p>
+        </div>
+        <button id="stats-button">Estatísticas para Nerds</button>    
+    </main>
+    <footer>
+        <p>pokecolor.net — 2025</p>
+        <p>A Nintendo não apoia nem patrocina este projeto. É um projeto pessoal para fins acadêmicos.</p>
+        <p><a href="privacy.html" target="_blank" rel="noopener noreferrer">Política de Privacidade</a></p>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+</html>
