@@ -11,50 +11,33 @@ document.addEventListener('DOMContentLoaded', function () {
     const logoLink = document.getElementById('logo-link');
     const scoreDisplay = document.getElementById('score-display');
     const attemptsDisplay = document.getElementById('attempts-display');
+    const highScoreDisplay = document.getElementById('high-score-display');
+    const attemptsProgressBar = document.getElementById('attempts-progress-bar');
+    const mainElement = document.querySelector('main'); 
 
     const initialPokemonTemas = [
-        { nome: 'Pikachu', dominantColor: '#FFD700', accentColor: '#FF4500', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png' },
-        { nome: 'Gardevoir', dominantColor: '#A3E4D7', accentColor: '#FFFFFF', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png' },
-        { nome: 'Gengar', dominantColor: '#6A0DAD', accentColor: '#D32F2F', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png' },
-        { nome: 'Lucario', dominantColor: '#4169E1', accentColor: '#000000', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png' },
-        { nome: 'Umbreon', dominantColor: '#424242', accentColor: '#FFEB3B', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/197.png' },
-        { nome: 'Sylveon', dominantColor: '#FFC0CB', accentColor: '#A8DADC', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/700.png' },
-        { nome: 'Bulbasaur', dominantColor: '#78C850', accentColor: '#4CAF50', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png' },
-        { nome: 'Charmander', dominantColor: '#F08030', accentColor: '#FF4500', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png' },
-        { nome: 'Squirtle', dominantColor: '#6890F0', accentColor: '#8B4513', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png' },
-        { nome: 'Eevee', dominantColor: '#CD853F', accentColor: '#F5DEB3', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png' },
-        { nome: 'Snorlax', dominantColor: '#80B3B3', accentColor: '#E0E0E0', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png' },
-        { nome: 'Jigglypuff', dominantColor: '#FFC0CB', accentColor: '#FFFFFF', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png' },
-        { nome: 'Onix', dominantColor: '#A9A9A9', accentColor: '#696969', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/95.png' },
-        { nome: 'Mismagius', dominantColor: '#8A2BE2', accentColor: '#FF1493', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/429.png' },
-        { nome: 'Arcanine', dominantColor: '#FF4500', accentColor: '#FFD700', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/59.png' },
-        { nome: 'Charizard', dominantColor: '#FF4500', accentColor: '#FFD700', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png' },
-        { nome: 'Blastoise', dominantColor: '#4169E1', accentColor: '#A9A9A9', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png' },
-        { nome: 'Venusaur', dominantColor: '#4CAF50', accentColor: '#DDA0DD', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png' },
-        { nome: 'Dragonite', dominantColor: '#FFC107', accentColor: '#4CAF50', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png' },
-        { nome: 'Greninja', dominantColor: '#424242', accentColor: '#E53935', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/658.png' },
-        { nome: 'Tyranitar', dominantColor: '#607D8B', accentColor: '#FFEB3B', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/248.png' },
-        { nome: 'Garchomp', dominantColor: '#424242', accentColor: '#E53935', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/445.png' },
-        { nome: 'Decidueye', dominantColor: '#4CAF50', accentColor: '#FF9800', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/727.png' },
-        { nome: 'Absol', dominantColor: '#E0E0E0', accentColor: '#212121', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/359.png' },
-        { nome: 'Aegislash', dominantColor: '#757575', accentColor: '#FFEB3B', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/681.png' },
-        { nome: 'Lapras', dominantColor: '#42A5F5', accentColor: '#9C27B0', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/131.png' },
-        { nome: 'Volcarona', dominantColor: '#FF5722', accentColor: '#FFFFFF', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/637.png' },
-        { nome: 'Togekiss', dominantColor: '#FFFFFF', accentColor: '#F44336', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/468.png' },
-        { nome: 'Haxorus', dominantColor: '#4CAF50', accentColor: '#E53935', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/612.png' },
-        { nome: 'Reuniclus', dominantColor: '#8BC34A', accentColor: '#FFFFFF', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/579.png' },
-        { nome: 'Milotic', dominantColor: '#F8BBD0', accentColor: '#42A5F5', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/350.png' },
-        { nome: 'Crobat', dominantColor: '#673AB7', accentColor: '#4CAF50', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/169.png' },
-        { nome: 'Aggron', dominantColor: '#424242', accentColor: '#9E9E9E', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/306.png' },
-        { nome: 'Hydreigon', dominantColor: '#3F51B5', accentColor: '#FF6F00', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/635.png' },
-        { nome: 'Amoonguss', dominantColor: '#E53935', accentColor: '#FFFFFF', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/591.png' }
+        { nome: 'Pikachu', dominantColor: '#FFD700', accentColor: '#FF4500', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png' },
+        { nome: 'Gardevoir', dominantColor: '#A3E4D7', accentColor: '#FFFFFF', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/282.png' },
+        { nome: 'Gengar', dominantColor: '#6A0DAD', accentColor: '#D32F2F', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png' },
+        { nome: 'Lucario', dominantColor: '#4169E1', accentColor: '#000000', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png' },
+        { nome: 'Umbreon', dominantColor: '#424242', accentColor: '#FFEB3B', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/197.png' },
+        { nome: 'Sylveon', dominantColor: '#FFC0CB', accentColor: '#A8DADC', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/700.png' },
+        { nome: 'Bulbasaur', dominantColor: '#78C850', accentColor: '#4CAF50', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png' },
+        { nome: 'Charmander', dominantColor: '#F08030', accentColor: '#FF4500', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png' },
+        { nome: 'Squirtle', dominantColor: '#6890F0', accentColor: '#8B4513', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png' },
+        { nome: 'Eevee', dominantColor: '#CD853F', accentColor: '#F5DEB3', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png' },
+        { nome: 'Snorlax', dominantColor: '#3A5C6C', accentColor: '#F0E68C', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png' },
+        { nome: 'Jigglypuff', dominantColor: '#FFC0CB', accentColor: '#FFFFFF', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png' },
+        { nome: 'Onix', dominantColor: '#A9A9A9', accentColor: '#696969', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png' },
+        { nome: 'Arcanine', dominantColor: '#FF4500', accentColor: '#FFD700', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png' },
+        { nome: 'Dragonite', dominantColor: '#FFC107', accentColor: '#4CAF50', imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png' },
     ];
 
     const mewData = {
         nome: 'Mew',
         dominantColor: '#F4A4C2',
         accentColor: '#FFFFFF',
-        imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png'
+        imagem: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png'
     };
 
     let pokemonAtualCorreto;
@@ -62,21 +45,67 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentPokemonPool = [...initialPokemonTemas];
     let mewUnlocked = false;
     let totalScore = 0;
+    let highScore = 0;
     let attemptsInRound = 0;
+    const MAX_ATTEMPTS = 6;
 
-    scoreDisplay.textContent = 'Pontuação: ' + totalScore;
-    attemptsDisplay.textContent = ''; // Inicializa o display de tentativas
+    function playSound(file, volume = 1.0) {
+        const audio = new Audio(`assets/${file}`);
+        audio.volume = volume;
+        audio.play().catch(e => console.error("Erro ao tocar som:", e));
+    }
+
+    function loadHighScore() {
+        const storedHighScore = localStorage.getItem('pokecolorHighScore');
+        if (storedHighScore) {
+            highScore = parseInt(storedHighScore);
+        }
+        highScoreDisplay.textContent = 'Melhor: ' + highScore;
+    }
+
+    function saveHighScore() {
+        if (totalScore > highScore) {
+            highScore = totalScore;
+            localStorage.setItem('pokecolorHighScore', highScore);
+            highScoreDisplay.textContent = 'Melhor: ' + highScore;
+        }
+    }
+
+    function updateAttemptsDisplayAndBar() {
+        attemptsDisplay.textContent = `Tentativas: ${attemptsInRound}/${MAX_ATTEMPTS}`;
+        if (attemptsInRound >= 5) {
+            attemptsDisplay.textContent += ' (Penalidade!)';
+        }
+
+        const remainingAttempts = MAX_ATTEMPTS - attemptsInRound;
+        const percentage = (remainingAttempts / MAX_ATTEMPTS) * 100;
+
+        attemptsProgressBar.style.width = `${percentage}%`;
+
+        if (percentage > 60) {
+            attemptsProgressBar.style.backgroundColor = '#4CAF50';
+        } else if (percentage > 30) {
+            attemptsProgressBar.style.backgroundColor = '#FFC107';
+        } else {
+            attemptsProgressBar.style.backgroundColor = '#F44336';
+        }
+
+        if (attemptsInRound >= MAX_ATTEMPTS || pokemonImage.style.display === 'block') {
+            attemptsProgressBar.parentElement.style.opacity = '0';
+            attemptsProgressBar.parentElement.style.pointerEvents = 'none';
+        } else {
+            attemptsProgressBar.parentElement.style.opacity = '1';
+            attemptsProgressBar.parentElement.style.pointerEvents = 'auto';
+        }
+    }
 
     botaoMudarCor.addEventListener('click', function () {
-        console.log('Botão "Mudar Cor" clicado: Iniciando nova rodada!');
-
         let temaEscolhido;
         let indiceAleatorio;
 
         do {
             if (pokemonSorteadosNaSessao.length === currentPokemonPool.length) {
                 pokemonSorteadosNaSessao = [];
-                console.log('Todos os Pokémon do pool atual foram sorteados! Reiniciando a lista.');
             }
             indiceAleatorio = Math.floor(Math.random() * currentPokemonPool.length);
             temaEscolhido = currentPokemonPool[indiceAleatorio];
@@ -84,11 +113,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         pokemonAtualCorreto = temaEscolhido;
         pokemonSorteadosNaSessao.push(temaEscolhido.nome);
-        console.log('Pokémon sorteado (e escondido): ' + temaEscolhido.nome + '. Já sorteados: ' + pokemonSorteadosNaSessao.join(', '));
 
-        // Transição de cor suave
-        elementoAlvo.style.transition = 'background-color 0.8s ease';
+        elementoAlvo.style.transition = 'background-color 0.8s ease, color 0.8s ease';
         elementoAlvo.style.backgroundColor = pokemonAtualCorreto.dominantColor;
+        elementoAlvo.style.color = pokemonAtualCorreto.dominantColor; // SVGs mudam juntos
         container.style.boxShadow = `0 0 30px 10px ${pokemonAtualCorreto.accentColor}`;
 
         pokemonInput.value = '';
@@ -97,18 +125,20 @@ document.addEventListener('DOMContentLoaded', function () {
         nomePokemonSpan.textContent = '?';
         pokemonImage.src = '';
         pokemonImage.style.display = 'none';
+        pokemonImage.classList.remove('pokemon-image-reveal'); 
 
         adivinharBtn.style.display = 'block';
         pokemonInput.style.display = 'block';
         pokemonInput.focus();
+        botaoMudarCor.style.display = 'none';
 
         attemptsInRound = 0;
-        attemptsDisplay.textContent = ''; // Reseta o texto de tentativas
+        updateAttemptsDisplayAndBar();
+        
+        playSound('confirm.mp3'); 
     });
 
     adivinharBtn.addEventListener('click', function () {
-        console.log('Botão "Adivinhar!" clicado: Verificando palpite...');
-
         const palpiteUsuario = pokemonInput.value.trim().toLowerCase();
 
         if (!pokemonAtualCorreto) {
@@ -128,45 +158,86 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             totalScore += pointsAwarded;
             scoreDisplay.textContent = 'Pontuação: ' + totalScore;
+            saveHighScore(); 
 
-            feedbackMessage.innerHTML = `Parabéns! Você acertou o Pokémon: ${pokemonAtualCorreto.nome}! (+${pointsAwarded} pts)<br>Clique em "Estatísticas para Nerds" para ver as cores!`;
+            feedbackMessage.innerHTML = `Parabéns! Você acertou o Pokémon: ${pokemonAtualCorreto.nome}! (+${pointsAwarded} pts)<br><span class="info-menor">Clique em "Estatísticas para Nerds" para ver as cores!</span>`;
             feedbackMessage.style.color = 'green';
             pokemonImage.src = pokemonAtualCorreto.imagem;
             pokemonImage.style.display = 'block';
+            pokemonImage.classList.add('revealed'); 
+            pokemonImage.classList.add('pokemon-image-reveal'); 
             nomePokemonSpan.textContent = pokemonAtualCorreto.nome;
             pokemonInput.value = '';
             adivinharBtn.style.display = 'none';
             pokemonInput.style.display = 'none';
-            attemptsDisplay.textContent = ''; // Reseta o texto de tentativas
+            
+            setTimeout(() => {
+                container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+
+            updateAttemptsDisplayAndBar();
+            
+            botaoMudarCor.style.display = 'block';
 
             if (totalScore >= 1150 && !mewUnlocked) {
                 mewUnlocked = true;
                 currentPokemonPool.push(mewData);
                 feedbackMessage.innerHTML += '<br><br>✨ VOCÊ DESBLOQUEOU O LENDÁRIO MEW! ✨<br>Ele agora pode aparecer no jogo!';
-                console.log('Mew desbloqueado!');
             }
-
+            playSound('correct.mp3', 0.1);
             attemptsInRound = 0;
-        } else {
+        } else { 
             attemptsInRound++;
             let penalty = 0;
             if (attemptsInRound > 5) {
                 penalty = (attemptsInRound - 5) * 10;
                 totalScore -= penalty;
+                if (totalScore < 0) totalScore = 0; 
                 scoreDisplay.textContent = 'Pontuação: ' + totalScore;
+                saveHighScore(); 
             }
 
             let penaltyMessage = penalty > 0 ? ` (-${penalty} pts)` : '';
-            feedbackMessage.textContent = `Ops! Tente novamente. (${attemptsInRound + 1}ª tentativa para pontuação)${penaltyMessage}`;
+            feedbackMessage.textContent = `Ops! Tente novamente. (${attemptsInRound}ª tentativa)${penaltyMessage}`;
             feedbackMessage.style.color = 'red';
             pokemonImage.style.display = 'none';
+            pokemonImage.classList.remove('pokemon-image-reveal'); 
             nomePokemonSpan.textContent = '?';
             pokemonInput.value = '';
 
-            // Atualiza o display de tentativas
-            attemptsDisplay.textContent = `Tentativas: ${attemptsInRound + 1}/6`;
-            if (attemptsInRound >= 5) {
-                attemptsDisplay.textContent += ' (Penalidade!)';
+            if (attemptsInRound === 3) {
+                const primeiraLetra = pokemonAtualCorreto.nome[0].toUpperCase();
+                feedbackMessage.innerHTML += `<br><span class="info-menor">Dica: O nome começa com <b>${primeiraLetra}</b></span>`;
+            }
+
+            updateAttemptsDisplayAndBar();
+            
+            playSound('bump.mp3'); 
+
+            container.classList.add('shake-animation');
+            setTimeout(() => {
+                container.classList.remove('shake-animation');
+            }, 500); 
+
+            if (attemptsInRound >= MAX_ATTEMPTS) { 
+                feedbackMessage.textContent = `Suas tentativas acabaram! Era um ${pokemonAtualCorreto.nome}.`;
+                feedbackMessage.style.color = 'red';
+                pokemonImage.src = pokemonAtualCorreto.imagem;
+                pokemonImage.style.display = 'block';
+                pokemonImage.classList.add('revealed'); 
+                pokemonImage.classList.add('pokemon-image-reveal'); 
+                nomePokemonSpan.textContent = pokemonAtualCorreto.nome;
+                pokemonInput.style.display = 'none';
+                adivinharBtn.style.display = 'none';
+                botaoMudarCor.style.display = 'block'; 
+                
+                updateAttemptsDisplayAndBar(); 
+                
+                saveHighScore(); 
+                totalScore = 0; 
+                scoreDisplay.textContent = 'Pontuação: ' + totalScore; 
+
+                attemptsInRound = 0; 
             }
         }
     });
@@ -178,7 +249,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     statsButton.addEventListener('click', function () {
-        console.log('Botão "Estatísticas para Nerds" clicado!');
         if (pokemonAtualCorreto && pokemonImage.style.display === 'block') {
             feedbackMessage.innerHTML = `
                 <strong>Cor Dominante:</strong> <span style="color: ${pokemonAtualCorreto.dominantColor};">${pokemonAtualCorreto.dominantColor}</span><br>
@@ -196,23 +266,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
     logoLink.addEventListener('click', function (event) {
         event.preventDefault();
-        console.log('Logo clicado: Resetando jogo e sorteando novo Pokémon...');
 
-        elementoAlvo.style.transition = 'none'; // Remove a transição para o reset ser imediato
+        saveHighScore(); 
+        totalScore = 0;
+        scoreDisplay.textContent = 'Pontuação: ' + totalScore;
+        loadHighScore(); 
+        mewUnlocked = false;
+        currentPokemonPool = [...initialPokemonTemas];
+        pokemonSorteadosNaSessao = []; 
+
+        elementoAlvo.style.transition = 'none';
         elementoAlvo.style.backgroundColor = 'var(--primary-color)';
-        container.style.boxShadow = '0 0 0px 0px transparent';
-
+        elementoAlvo.style.color = 'var(--primary-color)';
         pokemonInput.value = '';
-        feedbackMessage.textContent = '';
+        pokemonInput.style.display = 'none';
+        adivinharBtn.style.display = 'none';
+        
+        feedbackMessage.textContent = 'Clique em "Mudar Cor" para começar!';
         feedbackMessage.style.color = 'white';
+        
         nomePokemonSpan.textContent = '?';
         pokemonImage.src = '';
         pokemonImage.style.display = 'none';
-        adivinharBtn.style.display = 'block';
-        pokemonInput.style.display = 'block';
-        attemptsDisplay.textContent = ''; // Reseta o texto de tentativas
+        pokemonImage.classList.remove('pokemon-image-reveal'); 
 
         attemptsInRound = 0;
-        botaoMudarCor.click();
+        updateAttemptsDisplayAndBar();
+        pokemonAtualCorreto = null;
+
+        botaoMudarCor.style.display = 'block';
     });
+
+    scoreDisplay.textContent = 'Pontuação: ' + totalScore;
+    elementoAlvo.style.backgroundColor = 'var(--primary-color)';
+    elementoAlvo.style.color = 'var(--primary-color)';
+    feedbackMessage.textContent = 'Clique em "Mudar Cor" para começar!';
+    pokemonInput.style.display = 'none';
+    adivinharBtn.style.display = 'none';
+    botaoMudarCor.style.display = 'block';
+    pokemonImage.classList.remove('pokemon-image-reveal'); 
+
+    loadHighScore(); 
+
+    attemptsProgressBar.parentElement.style.opacity = '0'; 
+    attemptsProgressBar.parentElement.style.transition = 'opacity 0.5s ease-out'; 
 });

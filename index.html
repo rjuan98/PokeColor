@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/188/188918.png" type="image/png">
     <title>PokéColor</title>
 </head>
@@ -12,9 +12,16 @@
         <a href="#" id="logo-link">
             <img src="assets/Screenshot_1__1_-removebg-preview (1).png" alt="PokéColor Logo" id="logo">
         </a>
-        <p id="game-description">Adivinhe o Pokémon pela cor do seu tema e sua aura!</p>
-        <div id="score-display">Pontuação: 0</div> </header>
+        <p id="game-description">Adivinhe o Pokémon pela cor do seu tema!</p>
+       <div class="score-area">
+    <span id="score-display">Pontuação: 0</span>
+    <span id="high-score-display">Melhor: 0</span>
+</div>
+    </header>
     <main>
+        <div class="attempts-progress-container"> 
+            <div id="attempts-progress-bar"></div>
+        </div>
         <div id="container">
             <button id="troca-de-cor">Mudar Cor</button>
             <h2>Quem é esse Pokémon <span id="pokemonNome">?</span></h2>

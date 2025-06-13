@@ -1,0 +1,18 @@
+@import url('_variables.css');
+@import url('_base.css');
+@import url('_header.css');
+@import url('_main-game.css');
+@import url('_footer.css');
+@import url('_animations.css');
+@import url('_media-queries.css');
+
+.score-area {
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+.score-area span {
+    margin: 0 10px;
+    display: inline-block;
+}
