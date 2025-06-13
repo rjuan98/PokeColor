@@ -1,7 +1,25 @@
-or do fundo e tente adivinhar qual Pokémon ela representa.
-3. Digite o nome do Pokémon e clique em **Adivinhar!** ou pressione **Enter**.
-4. Você ganha mais pontos acertando com menos tentativas!
-5. Veja sua pontuação, recorde e tente desbloquear o lendário **Mew**!
+<p align="center">
+  <img src="assets/pokecolor-logo.png" alt="PokéColor Logo" width="300"/> </p>
+
+<p align="center">
+  Bem-vindo ao <b>PokéColor</b>! Um jogo divertido onde seu conhecimento sobre Pokémon e cores é testado. Desafie-se a adivinhar o Pokémon misterioso apenas pela cor do seu tema e aura. Será que você consegue pegar todos?
+</p>
+
+<p align="center">
+  ✨ Jogue agora: [Link para o seu jogo ao vivo (se tiver)](https://seulinkparaoseujogo.com) ✨
+</p>
+
+---
+
+## 🎮 Como Jogar
+
+É simples e viciante! Siga estes passos:
+
+1.  A cada rodada, a cor de fundo do jogo e a aura do Pokémon misterioso mudarão, refletindo o tema do Pokémon oculto.
+2.  Observe a cor do fundo e tente adivinhar qual Pokémon ela representa.
+3.  Digite o nome do Pokémon e clique em **Adivinhar!** ou pressione **Enter**.
+4.  Você ganha mais pontos acertando com menos tentativas!
+5.  Veja sua pontuação, recorde e tente desbloquear o lendário **Mew**!
 
 ---
 
